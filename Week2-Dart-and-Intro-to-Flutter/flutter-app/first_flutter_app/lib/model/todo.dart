@@ -13,9 +13,26 @@ class Todo {
     return [
       Todo(id: '01', todoText: 'Morning Exercise', isDone: true),
       Todo(id: '02', todoText: 'Breakfast', isDone: true),
-      Todo(id: '02', todoText: 'Breakfast', isDone: true),
-      Todo(id: '02', todoText: 'Breakfast', isDone: true),
-      Todo(id: '02', todoText: 'Breakfast', isDone: true),
+      Todo(
+        id: '03',
+        todoText: 'Work',
+      ),
+      Todo(
+        id: '04',
+        todoText: 'Lunch',
+      ),
+      Todo(
+        id: '05',
+        todoText: 'Gym',
+      ),
+      Todo(
+        id: '05',
+        todoText: 'Dinner',
+      ),
+      Todo(
+        id: '05',
+        todoText: 'Sleep',
+      ),
     ];
   }
 }

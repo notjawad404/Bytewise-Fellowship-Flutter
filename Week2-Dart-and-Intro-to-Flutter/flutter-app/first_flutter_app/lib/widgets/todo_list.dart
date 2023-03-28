@@ -18,15 +18,15 @@ class Todoitem extends StatelessWidget {
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
         tileColor: Colors.white,
         leading: Icon(
-          Icons.check_box,
+          td.isDone ? Icons.check_box : Icons.check_box_outline_blank,
           color: tdBlue,
         ),
         title: Text(
-          td.todoText,
+          td.todoText!,
           style: TextStyle(
             fontSize: 16,
             color: tdBlack,
-            decoration: TextDecoration.lineThrough,
+            decoration: td.isDone ? TextDecoration.lineThrough : null,
           ),
         ),
         trailing: Container(

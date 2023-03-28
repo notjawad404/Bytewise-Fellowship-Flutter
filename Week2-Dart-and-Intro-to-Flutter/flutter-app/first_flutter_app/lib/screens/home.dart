@@ -4,7 +4,7 @@ import 'package:first_flutter_app/widgets/todo_list.dart';
 import 'package:first_flutter_app/model/todo.dart';
 
 class Home extends StatelessWidget {
-  const Home({Key? key}) : super(key: key);
+  Home({Key? key}) : super(key: key);
 
   final todos = Todo.todoList();
 
@@ -13,30 +13,71 @@ class Home extends StatelessWidget {
     return Scaffold(
       backgroundColor: tdBGColor,
       appBar: buildappbar(),
-      body: Container(
-          padding: EdgeInsets.symmetric(horizontal: 25, vertical: 15),
-          child: Column(
-            children: [
-              searchBox(),
-              Expanded(
-                child: ListView(
-                  children: [
-                    Container(
-                      margin: EdgeInsets.only(top: 50, bottom: 20),
-                      child: Text(
-                        "ToDo List",
-                        style: TextStyle(
-                          fontSize: 30,
-                          fontWeight: FontWeight.w500,
+      body: Column(children: [
+        Container(
+            padding: EdgeInsets.symmetric(horizontal: 25, vertical: 15),
+            child: Stack(
+              children: [
+                searchBox(),
+                Expanded(
+                  child: ListView(
+                    children: [
+                      Container(
+                        margin: EdgeInsets.only(top: 50, bottom: 20),
+                        child: Text(
+                          "ToDo List",
+                          style: TextStyle(
+                            fontSize: 30,
+                            fontWeight: FontWeight.w500,
+                          ),
                         ),
                       ),
-                    ),
-                    for (Todo td in todos) Todoitem(),
-                  ],
+                      for (Todo tod in todos)
+                        Todoitem(
+                          td: tod,
+                        ),
+                    ],
+                  ),
+                )
+              ],
+            )),
+        Align(
+          alignment: Alignment.bottomCenter,
+          child: Row(children: [
+            Expanded(
+              child: Container(
+                margin: EdgeInsets.only(
+                  bottom: 20,
+                  left: 20,
+                  right: 20,
                 ),
-              )
-            ],
-          )),
+                padding: EdgeInsets.symmetric(
+                  horizontal: 20,
+                  vertical: 5,
+                ),
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  boxShadow: const [
+                    BoxShadow(
+                      color: Colors.grey,
+                      offset: Offset(0, 0),
+                      blurRadius: 10.0,
+                      spreadRadius: 0.0,
+                    ),
+                  ],
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                child: TextField(
+                  decoration: InputDecoration(
+                    hintText: 'Enter a new Todo Item',
+                    border: InputBorder.none,
+                  ),
+                ),
+              ),
+            )
+          ]),
+        ),
+      ]),
     );
   }
 
