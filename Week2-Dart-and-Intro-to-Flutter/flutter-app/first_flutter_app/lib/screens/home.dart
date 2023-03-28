@@ -13,34 +13,38 @@ class Home extends StatelessWidget {
     return Scaffold(
       backgroundColor: tdBGColor,
       appBar: buildappbar(),
-      body: Column(children: [
+      body: Stack(children: [
         Container(
-            padding: EdgeInsets.symmetric(horizontal: 25, vertical: 15),
-            child: Stack(
-              children: [
-                searchBox(),
-                Expanded(
-                  child: ListView(
-                    children: [
-                      Container(
-                        margin: EdgeInsets.only(top: 50, bottom: 20),
-                        child: Text(
-                          "ToDo List",
-                          style: TextStyle(
-                            fontSize: 30,
-                            fontWeight: FontWeight.w500,
-                          ),
+          padding: EdgeInsets.symmetric(horizontal: 25, vertical: 15),
+          child: Column(
+            children: [
+              searchBox(),
+              Expanded(
+                child: ListView(
+                  children: [
+                    Container(
+                      margin: EdgeInsets.only(
+                        top: 50,
+                        bottom: 20,
+                      ),
+                      child: Text(
+                        "ToDo List",
+                        style: TextStyle(
+                          fontSize: 30,
+                          fontWeight: FontWeight.w500,
                         ),
                       ),
-                      for (Todo tod in todos)
-                        Todoitem(
-                          td: tod,
-                        ),
-                    ],
-                  ),
-                )
-              ],
-            )),
+                    ),
+                    for (Todo tod in todos)
+                      Todoitem(
+                        td: tod,
+                      ),
+                  ],
+                ),
+              )
+            ],
+          ),
+        ),
         Align(
           alignment: Alignment.bottomCenter,
           child: Row(children: [
@@ -51,10 +55,7 @@ class Home extends StatelessWidget {
                   left: 20,
                   right: 20,
                 ),
-                padding: EdgeInsets.symmetric(
-                  horizontal: 20,
-                  vertical: 5,
-                ),
+                padding: EdgeInsets.symmetric(horizontal: 20, vertical: 5),
                 decoration: BoxDecoration(
                   color: Colors.white,
                   boxShadow: const [
@@ -74,7 +75,27 @@ class Home extends StatelessWidget {
                   ),
                 ),
               ),
-            )
+            ),
+            Container(
+              margin: EdgeInsets.only(
+                bottom: 20,
+                right: 20,
+              ),
+              child: ElevatedButton(
+                child: Text(
+                  '+',
+                  style: TextStyle(
+                    fontSize: 40,
+                  ),
+                ),
+                onPressed: () {},
+                style: ElevatedButton.styleFrom(
+                  primary: tdBlue,
+                  minimumSize: Size(60, 60),
+                  elevation: 10,
+                ),
+              ),
+            ),
           ]),
         ),
       ]),
