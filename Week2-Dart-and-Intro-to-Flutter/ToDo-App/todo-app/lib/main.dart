@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:first_flutter_app/screens/home.dart';
+import 'package:todo_app/screens/home.dart';
 import 'package:flutter/services.dart';
 
 void main() {

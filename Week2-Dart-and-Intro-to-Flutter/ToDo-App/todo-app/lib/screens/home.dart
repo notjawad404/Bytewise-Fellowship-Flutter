@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:first_flutter_app/constants/color.dart';
-import 'package:first_flutter_app/widgets/todo_list.dart';
-import 'package:first_flutter_app/model/todo.dart';
+import 'package:todo_app/constants/color.dart';
+import 'package:todo_app/widgets/todo_list.dart';
+import 'package:todo_app/model/todo.dart';
 
 class Home extends StatelessWidget {
   Home({Key? key}) : super(key: key);
