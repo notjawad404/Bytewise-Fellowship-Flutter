@@ -3,10 +3,16 @@ import 'package:todo_app/constants/color.dart';
 import 'package:todo_app/widgets/todo_list.dart';
 import 'package:todo_app/model/todo.dart';
 
-class Home extends StatelessWidget {
+class Home extends StatefulWidget {
   Home({Key? key}) : super(key: key);
 
+  @override
+  State<Home> createState() => _HomeState();
+}
+
+class _HomeState extends State<Home> {
   final todos = Todo.todoList();
+  final todoController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -38,6 +44,8 @@ class Home extends StatelessWidget {
                     for (Todo tod in todos)
                       Todoitem(
                         td: tod,
+                        onToDoChanged: handleToDOChange,
+                        onDeleteItem: deleteToDoItem,
                       ),
                   ],
                 ),
@@ -69,6 +77,7 @@ class Home extends StatelessWidget {
                   borderRadius: BorderRadius.circular(10),
                 ),
                 child: TextField(
+                  controller: todoController,
                   decoration: InputDecoration(
                     hintText: 'Enter a new Todo Item',
                     border: InputBorder.none,
@@ -88,7 +97,9 @@ class Home extends StatelessWidget {
                     fontSize: 40,
                   ),
                 ),
-                onPressed: () {},
+                onPressed: () {
+                  addToDoItem(todoController.text);
+                },
                 style: ElevatedButton.styleFrom(
                   primary: tdBlue,
                   minimumSize: Size(60, 60),
@@ -100,6 +111,27 @@ class Home extends StatelessWidget {
         ),
       ]),
     );
+  }
+
+  void handleToDOChange(Todo todo) {
+    setState(() {
+      todo.isDone = !todo.isDone;
+    });
+  }
+
+  void deleteToDoItem(String id) {
+    setState(() {
+      todos.removeWhere((item) => item.id == id);
+    });
+  }
+
+  void addToDoItem(String todo) {
+    setState(() {
+      todos.add(Todo(
+          id: DateTime.now().microsecondsSinceEpoch.toString(),
+          todoText: todo));
+    });
+    todoController.clear();
   }
 
   Widget searchBox() {

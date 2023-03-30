@@ -5,7 +5,15 @@ import 'package:todo_app/model/todo.dart';
 
 class Todoitem extends StatelessWidget {
   final Todo td;
-  const Todoitem({Key? key, required this.td}) : super(key: key);
+  final onToDoChanged;
+  final onDeleteItem;
+
+  const Todoitem(
+      {Key? key,
+      required this.td,
+      required this.onToDoChanged,
+      required this.onDeleteItem})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -13,7 +21,8 @@ class Todoitem extends StatelessWidget {
       margin: EdgeInsets.only(bottom: 20),
       child: ListTile(
         onTap: () {
-          print("Clicked on Todo Item.");
+          // print("Clicked on Todo Item.");
+          onToDoChanged(td);
         },
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
         tileColor: Colors.white,
@@ -41,7 +50,8 @@ class Todoitem extends StatelessWidget {
             iconSize: 18,
             icon: Icon(Icons.delete),
             onPressed: () {
-              print("Clicked on delete button");
+              // print("Clicked on delete button");
+              onDeleteItem(td.id);
             },
           ),
         ),

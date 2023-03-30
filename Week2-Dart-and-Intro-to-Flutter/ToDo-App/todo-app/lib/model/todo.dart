@@ -26,11 +26,11 @@ class Todo {
         todoText: 'Gym',
       ),
       Todo(
-        id: '05',
+        id: '06',
         todoText: 'Dinner',
       ),
       Todo(
-        id: '05',
+        id: '07',
         todoText: 'Sleep',
       ),
     ];
