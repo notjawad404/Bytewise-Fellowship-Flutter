@@ -14,13 +14,20 @@ class myApp extends StatefulWidget {
 
 class _myAppState extends State<myApp> {
   double _margin = 0;
-  double _width = 400;
   MaterialColor _color = Colors.blue;
+
+  @override
+  void initState() {
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) => Scaffold(
         appBar: AppBar(
-          title: const Text("My App"),
+          title: const Icon(
+            Icons.image,
+            size: 50.0,
+          ),
           backgroundColor: Colors.black45,
           actions: [
             ElevatedButton(
@@ -30,8 +37,9 @@ class _myAppState extends State<myApp> {
               onPressed: () {
                 Navigator.pop(context);
               },
-              child: const Text(
-                "Home",
+              child: const Icon(
+                Icons.home,
+                size: 50.0,
               ),
             )
           ],
@@ -39,7 +47,6 @@ class _myAppState extends State<myApp> {
         body: AnimatedContainer(
           duration: const Duration(milliseconds: 500),
           margin: EdgeInsets.all(_margin),
-          width: _width,
           color: _color,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,

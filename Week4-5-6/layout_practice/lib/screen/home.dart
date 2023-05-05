@@ -23,7 +23,10 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) => Scaffold(
         appBar: AppBar(
-          title: const Text("Home"),
+          title: const Icon(
+            Icons.home,
+            size: 50.0,
+          ),
           centerTitle: true,
           actions: [
             ElevatedButton(
@@ -36,8 +39,9 @@ class _HomeState extends State<Home> {
                   MaterialPageRoute(builder: (context) => const Video()),
                 );
               },
-              child: const Text(
-                "Video",
+              child: const Icon(
+                Icons.videocam,
+                size: 50.0,
               ),
             )
           ],
