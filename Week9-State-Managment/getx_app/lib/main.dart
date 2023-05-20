@@ -23,7 +23,7 @@ class MyApp extends StatelessWidget {
       ),
       body: const Center(
         child: Text(
-          "Welcomet to my App",
+          "Welcomet to My App",
           style: TextStyle(
               fontSize: 50,
               fontWeight: FontWeight.bold,

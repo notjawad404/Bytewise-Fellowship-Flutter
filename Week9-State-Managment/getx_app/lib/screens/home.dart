@@ -46,7 +46,7 @@ class Home extends StatelessWidget {
                             ],
                           ));
                     },
-                    child: const Text("Dialog Box"),
+                    child: const Text("About Page"),
                   ),
                 ],
               ),
