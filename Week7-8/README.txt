@@ -1,0 +1,1 @@
+Attended meetings where our previous progress was discussed and next tasks were given
